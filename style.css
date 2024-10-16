@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --primary: #005963;
+    --secondary: #14967F;
+    --background: #EBF2F3;
+    --accent: #E2FCD6;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+
+#root, #__next {
+    isolation: isolate;
+}
+
+.material-symbols-outlined {
+    font-size: 18px;
+    font-variation-settings:
+        'FILL'0,
+        'wght'400,
+        'GRAD'0,
+        'opsz'24
+}
+
+.title {
+    font-family: "Philosopher", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.nav-title {
+    font-family: "Philosopher", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--primary);
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+main {
+    height: 100vh;
+}
+
+button {
+    outline: none;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+label {
+    margin-bottom: 4px;
+}
+
+input[type="text"] {
+    border: 1px solid #1F6C75;
+    font-size: 12px;
+    border-radius: 9999px;
+    padding: 4px 8px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--secondary);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.gap-1_25 {
+    gap: 1.25rem;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
+.gap-4 {
+    gap: 4rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background-color: inherit;
+}
+
+
+.grad {
+    background: linear-gradient(255.21deg, #99BDC1 0%, #D5E4E6 100%);
+    height: 100vh;
+}
+
+.highlights {
+    color: var(--primary);
+}
+
+.highlights>ul {
+    gap: 0.5rem;
+}
+
+.highlights>ul>li>i {
+    background-color: var(--accent);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 20px;
+}
+
+.highlights>ul>li>div {
+    font-size: 20px;
+    color: var(--primary);
+}
+
+.highlights>div {
+    margin-top: 50px;
+    font-size: 24px;
+    color: var(--primary);
+}
+
+#hero-contactus {
+    margin-top: 12px;
+    background-color: var(--accent);
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 12px;
+    padding: 12px 24px;
+}
+
+.navbar {
+    color: var(--primary);
+    padding: 10px 10px;
+    background-color: var(--background);
+}
+
+.navbar>div>div>ul>li {
+    font-size: 14px;
+}
+
+.hero {
+    display: flex;
+    gap: 2.5rem;
+    height: 100%;
+    align-items: center;
+    padding-bottom: 124px;
+    justify-content: space-between;
+}
+
+.hero-content {
+    width: 100%;
+}
+
+.hero-title {
+    font-size: 36px;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.hero-title>.title {
+    font-size: 88px;
+}
+
+.login-card {
+    width: 560px;
+    gap: 14px;
+    background-color: white;
+    border-radius: 24px;
+}
+
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    padding: 25px 35px;
+    font-size: 18px;
+}
+
+.login-card-content {
+    padding: 45px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.login-form>div>label {
+    color: #1F6C75;
+    font-size: 20px;
+}
+
+.login-form>div>input::placeholder {
+    color: #ADC9CD;
+}
+
+.login-form>div>input {
+    height: 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #ADC9CD;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.loginBtn {
+    margin-top: 20px;
+    color: white;
+    padding: 14px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--primary);
+}
+
+.login-sub-link {
+    font-size: 14px;
+    color: #00ACB1;
+    padding-top: 4px;
+}
+
+.contact-btn {
+    color: white;
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: white;
+    color: var(--primary);
+    border-radius: 10px;
+    padding: 4px 10px;
+
+}
+
+.search-box>input {
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    width: 110px;
+}
+
+.footer {
+    color: black;
+    height: 325px;
+    background-color: var(--primary);
+    padding: 80px;
+}
+
+footer>div>.title {
+    font-size: 40px;
+    line-height: 1;
+}
+
+.footer-links {
+    color: #D5E4E6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-weight: 300;
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chatbot-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0px 8px 16px 0px #00596333;
+}
+
+.chatbot-btn img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) saturate(100%) invert(39%) sepia(73%) saturate(300%) hue-rotate(145deg);
+}
+
+.chatbot-popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 400px;
+    height: 90%;
+    min-height: 80%;
+    min-width: 30%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px #00596333;
+    overflow: hidden;
+}
+
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+}
+
+.chatbot-support {
+    position: absolute;
+    font-size: 14px;
+    margin-right: 150px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background-color: var(--accent);
+    color: var(--primary);
+    box-shadow: 0px 8px 16px 0px #00596333;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#chatbotFrame {
+    width: 100%;
+    height: calc(100% - 50px);
+    border: none;
+}
+
+
+@media only screen and (min-width: 1335px) {
+    .grad {
+        background-image: url("./assets/Doctor.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}

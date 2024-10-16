@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./style.css" />
+    <title>Med</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <div class="nav-title">
+                    HealthCare
+                </div>
+                <ul class="flex items-center gap-1_25">
+                    <li>
+                        About Us
+                    </li>
+
+                    <li class="dropdown">
+                        <span class="flex items-center">
+                            Our Services
+                            <i class="material-icons" style="font-size:18px;">arrow_drop_down</i>
+                        </span>
+                        <div class="dropdown-content" style="background-color: var(--background);">
+                            <p>One</p>
+                            <p>Two</p>
+                            <p>Three</p>
+                        </div>
+                    </li>
+                    <li>
+                        Doctors
+                    </li>
+                    <li>
+                        <form class="search-box">
+                            <i class="material-icons" style="font-size:18px;">search</i>
+                            <input name="search" type="text" placeholder="Search here..." />
+                        </form>
+                    </li>
+                    <li>
+                        <button class="contact-btn">
+                            Contact Us
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <main>
+        <div class="grad">
+            <div class="hero container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <p style="font-size:32px;font-weight: 600;color:white;">
+                            Login
+                        </p>
+                        <button id="loginHelpBtn"
+                            style="display:flex;border-radius:99px;padding:6px;background-color:var(--accent);">
+                            <i class="material-icons" style="font-size:38px;color:var(--primary);">contact_support</i>
+                        </button>
+                    </div>
+                    <div class="login-card-content">
+                        <form class="login-form">
+                            <div class="flex flex-column">
+                                <label for="userid">Login ID</label>
+                                <input name="userid" type="text" placeholder="Enter ID" />
+                                <a href="#" class="login-sub-link">
+                                    Forgot Login ID
+                                </a>
+                            </div>
+                            <div class="flex flex-column">
+                                <label for="password">Password</label>
+                                <input name="password" type="text" placeholder="Enter Password" />
+                                <a href="#" class="login-sub-link">
+                                    Forgot Password
+                                </a>
+                            </div>
+                            <button id="loginBtn" class="loginBtn">
+                                Login
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="flex flex-column hero-content">
+                    <div class="hero-title">
+                        Welcome to <p class="title">HealthCare</p>
+                    </div>
+                    <div class="highlights">
+                        <ul class="flex flex-column">
+                            <li class="flex items-center gap-1">
+                                <i class="material-icons">arrow_outward</i>
+                                <div>
+                                    Consult Doctor
+                                </div>
+                            </li>
+                            <li class="flex items-center gap-1">
+                                <i class="material-icons">arrow_outward</i>
+                                <div>
+                                    Medication
+                                </div>
+                            </li>
+                            <li class="flex items-center gap-1">
+                                <i class="material-icons">arrow_outward</i>
+                                <div>
+                                    Testing
+                                </div>
+                            </li>
+                        </ul>
+                        <div>
+                            <p>We are happy to help!</p>
+                            <button id="hero-contactus">
+                                Contact Us
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="flex justify-between gap-1_25 container">
+            <div class="title" style="color:var(--accent)">
+                HealthCare
+                <div style="margin-top:4px;color:#ADC9CD;font-size: 12px;font-weight:300;">
+                    © 2024 HealthCare Corp Ltd.
+                </div>
+            </div>
+            <div>
+                <ul class="footer-links">
+                    <li>
+                        About Us
+                    </li>
+                    <li>
+                        Our Services
+                    </li>
+                    <li>
+                        Doctors
+                    </li>
+                    <li>
+                        Contact Us
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="footer-links">
+                    <li>
+                        Terms & Conditions
+                    </li>
+                    <li>
+                        Cookie Policy
+                    </li>
+                    <li>
+                        Privacy Policy
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="footer-links">
+                    <li>
+                        Bengaluru
+                    </li>
+                    <li>
+                        Chennai
+                    </li>
+                    <li>
+                        Mumbai
+                    </li>
+                    <li>
+                        Madhya Pradesh
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="flex gap-1">
+                    <li>
+                        <img src="./assets/social_icons/x.png" />
+                    </li>
+                    <li>
+                        <img src="./assets/social_icons/instagram.png" />
+                    </li>
+                    <li>
+                        <img src="./assets/social_icons/facebook.png" />
+                    </li>
+                    <li>
+                        <img src="./assets/social_icons/linkedin.png" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div id="chatbotContainer" class="chatbot-container">
+        <button id="chatbotBtn" class="chatbot-btn">
+            <div class="chatbot-support">Support</div>
+            <img src="./assets/bot.png" />
+        </button>
+        <div id="chatbotPopup" class="chatbot-popup">
+            <div class="chatbot-header">
+                <h3 class="title" style="font-size:18px;">HealthCare | Support</h3>
+                <button id="closeChatbot" class="close-btn">&times;</button>
+            </div>
+            <iframe id="chatbotFrame" src="about:blank" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./login.js"></script>
+    <script type="text/javascript" src="./chatbot.js"></script>
+</body>
+
+</html>
