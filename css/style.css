@@ -419,7 +419,7 @@ footer>div>.title {
 
 @media only screen and (min-width: 1335px) {
     .grad {
-        background-image: url("./assets/Doctor.png");
+        background-image: url("../assets/Doctor.png");
         background-size: cover;
         background-repeat: no-repeat;
     }
