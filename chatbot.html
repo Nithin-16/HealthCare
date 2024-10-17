@@ -17,8 +17,15 @@
         html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: "Poppins", sans-serif;
             height: 100%;
+        }
+
+        button {
+            outline: none;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         .chat-container {
@@ -58,18 +65,32 @@
             background-color: #f0f0f0;
         }
 
+        .option {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin: 0px 4px;
+        }
+
+        .option-active {
+            background-color: var(--primary);
+            color: var(--background);
+            border-color: transparent;
+        }
+
         #userInput {
             flex: 1;
             padding: 10px;
             border: none;
-            border-radius: 20px;
+            border-radius: 12px;
             margin-right: 10px;
         }
 
         #sendButton {
-            border: 1px solid var(--primary);
-            background-color: var(--accent);
-            color: var(--primary);
+            background-color: var(--primary);
+            color: var(--background);
             font-weight: 500;
             font-size: 16px;
             border-radius: 12px;
@@ -94,6 +115,80 @@
         const chatMessages = document.getElementById('chatMessages');
         const userInput = document.getElementById('userInput');
         const sendButton = document.getElementById('sendButton');
+        let currentQuestionIndex = 0;
+        let waitingForTextInput = false;
+        let selectedProgram = null;
+
+        let questions = [
+            {
+                question: "Which wellness program are you interested in?",
+                input_type: "button",
+                options: [
+                    { label: "Cancer", action: () => selectProgram("cancer") },
+                    { label: "Diabetes", action: () => selectProgram("diabetes") }
+                ]
+            },
+            {
+                question: "Would you like to take up some questionnaires?",
+                input_type: "button",
+                options: [
+                    { label: "Yes", action: () => nextQuestion() },
+                    { label: "No", action: () => closeChatbot() }
+                ]
+            },
+            {
+                question: "When were you first diagnosed?",
+                input_type: "text",
+                placeholder: "Type your answer here...",
+                action: (input) => {
+                    nextQuestion();
+                }
+            },
+            {
+                question: "Have any family members ever been diagnosed?",
+                input_type: "text",
+                placeholder: "Type your answer here...",
+                action: (input) => {
+                    nextQuestion();
+                }
+            },
+            {
+                question: "Do you smoke or drink alcohol?",
+                input_type: "text",
+                placeholder: "Type your answer here...",
+                action: (input) => {
+                    nextQuestion();
+                }
+            },
+            {
+                question: "Have you noticed any unexplained weight loss or gain recently?",
+                input_type: "text",
+                placeholder: "Type your answer here...",
+                action: (input) => {
+                    nextQuestion();
+                }
+            },
+            {
+                question: "Have you experienced any unusual bleeding or discharge?",
+                input_type: "text",
+                placeholder: "Type your answer here...",
+                action: (input) => {
+                    addMessage(`Thank you for answering all questions. A care agent will get back shortly.`, false);
+                    nextQuestion();
+                }
+            },
+        ];
+
+        function closeChatbot() {
+            window.parent.postMessage({ type: "CLOSE_CHATBOT" }, "*");
+        }
+
+        function selectProgram(program) {
+            selectedProgram = program;
+            addMessage(`Thank you for showing interest in the ${program} wellness program.`, false);
+            currentQuestionIndex = 1;
+            askQuestion(questions[currentQuestionIndex]);
+        }
 
         function addMessage(message, isUser) {
             const messageElement = document.createElement('div');
@@ -104,27 +199,97 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        function handleUserInput() {
-            const message = userInput.value.trim();
-            if (message) {
-                addMessage(message, true);
-                userInput.value = '';
-                // Simulate bot response (replace with actual chatbot logic)
-                setTimeout(() => {
-                    addMessage("Thank you for your message. How can I assist you today?", false);
-                }, 1000);
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                askQuestion(questions[currentQuestionIndex]);
             }
         }
 
-        sendButton.addEventListener('click', handleUserInput);
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleUserInput();
+        function addOptions(options) {
+            const optionsContainer = document.createElement('div');
+            optionsContainer.classList.add('options');
+
+            options.forEach(optionObj => {
+                const optionButton = document.createElement('button');
+                optionButton.classList.add('option');
+                optionButton.textContent = optionObj.label;
+
+                optionButton.onclick = () => {
+                    optionButton.classList.add('option-active');
+                    handleUserInput(optionObj.label);
+                    optionObj.action();
+                    optionsContainer.remove();
+                };
+
+                optionsContainer.appendChild(optionButton);
+            });
+
+            chatMessages.appendChild(optionsContainer);
+        }
+
+        function handleUserInput(input) {
+            if (input) {
+                addMessage(input, true);
+                if (waitingForTextInput) {
+                    processUserInput(input);
+                }
+            }
+        }
+
+        function processUserInput(input) {
+            const currentQuestion = questions[currentQuestionIndex];
+            if (currentQuestion.input_type === 'button' || waitingForTextInput) {
+                if (currentQuestion.action) {
+                    currentQuestion.action(input);
+                }
+                waitingForTextInput = true;
+                userInput.placeholder = "Type your message...";
+            }
+        }
+
+        function askQuestion(question) {
+            addMessage(question.question, false);
+            if (question.input_type === 'button') {
+                addOptions(question.options);
+            } else if (question.input_type === 'text') {
+                waitingForTextInput = true;
+                userInput.placeholder = question.placeholder || "Type your answer here...";
+            }
+        }
+
+        function initializeChat(program) {
+            if (program) {
+                selectedProgram = program;
+                addMessage(`Thank you for showing interest in the ${program} wellness program.`, false);
+                currentQuestionIndex = 1;
+                askQuestion(questions[currentQuestionIndex]);
+            } else {
+                askQuestion(questions[0]);
+            }
+        }
+
+        sendButton.addEventListener('click', () => {
+            if (waitingForTextInput) {
+                handleUserInput(userInput.value);
+                userInput.value = '';
             }
         });
 
-        // Initial bot message
-        addMessage("Hello! How can I help you today?", false);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && waitingForTextInput) {
+                handleUserInput(userInput.value);
+                userInput.value = '';
+            }
+        });
+
+        window.addEventListener("message", function (event) {
+            if (event.data.type === "INITIALIZE_CHAT") {
+                initializeChat(event.data.program);
+            }
+        });
+
+        window.parent.postMessage({ type: "CHATBOT_READY" }, "*");
     </script>
 </body>
 

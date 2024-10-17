@@ -16,10 +16,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Here you would typically send these credentials to your server
     console.log("Login attempted with:", userid, password);
 
-    // Placeholder: show an alert instead of actual login logic
-    alert("Login attempt registered. Actual authentication would happen here.");
+    // Simulating a successful login
+    const userData = {
+      userid: userid,
+      // Add any other user data you want to store
+    };
 
-    // TODO: Implement actual login logic
+    // Store user data in localStorage
+    localStorage.setItem("userData", JSON.stringify(userData));
+
+    // Redirect to dashboard
+    window.location.href = "dashboard.html";
+
+    // TODO: Implement actual login logic with server-side authentication
     // Example:
     // fetch('/api/login', {
     //     method: 'POST',
@@ -31,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // .then(response => response.json())
     // .then(data => {
     //     if (data.success) {
-    //         window.location.href = '/dashboard';
+    //         localStorage.setItem('userData', JSON.stringify(data.userData));
+    //         window.location.href = 'dashboard.html';
     //     } else {
     //         alert('Login failed: ' + data.message);
     //     }

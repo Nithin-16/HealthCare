@@ -38,34 +38,6 @@ p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
 
-
-#root, #__next {
-    isolation: isolate;
-}
-
-.material-symbols-outlined {
-    font-size: 18px;
-    font-variation-settings:
-        'FILL'0,
-        'wght'400,
-        'GRAD'0,
-        'opsz'24
-}
-
-.title {
-    font-family: "Philosopher", sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-}
-
-.nav-title {
-    font-family: "Philosopher", sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    color: var(--primary);
-}
-
-
 ul {
     list-style: none;
     padding: 0;
@@ -98,6 +70,40 @@ a {
     text-decoration: none;
 }
 
+#root, #__next {
+    isolation: isolate;
+}
+
+.material-symbols-outlined {
+    font-size: 18px;
+    font-variation-settings:
+        'FILL'0,
+        'wght'400,
+        'GRAD'0,
+        'opsz'24
+}
+
+.title {
+    font-family: "Philosopher", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.nav-title {
+    font-family: "Philosopher", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--primary);
+}
+
+.dash-btn {
+    background-color: var(--primary);
+    color: var(--background);
+    padding: 10px 20px;
+    border-radius: 12px;
+}
+
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -117,8 +123,18 @@ a {
     display: block;
 }
 
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background-color: inherit;
+}
+
 .flex {
     display: flex;
+}
+
+.justify-center {
+    justify-content: center;
 }
 
 .justify-between {
@@ -149,54 +165,6 @@ a {
     gap: 4rem;
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    background-color: inherit;
-}
-
-
-.grad {
-    background: linear-gradient(255.21deg, #99BDC1 0%, #D5E4E6 100%);
-    height: 100vh;
-}
-
-.highlights {
-    color: var(--primary);
-}
-
-.highlights>ul {
-    gap: 0.5rem;
-}
-
-.highlights>ul>li>i {
-    background-color: var(--accent);
-    border-radius: 12px;
-    padding: 12px;
-    font-size: 20px;
-}
-
-.highlights>ul>li>div {
-    font-size: 20px;
-    color: var(--primary);
-}
-
-.highlights>div {
-    margin-top: 50px;
-    font-size: 24px;
-    color: var(--primary);
-}
-
-#hero-contactus {
-    margin-top: 12px;
-    background-color: var(--accent);
-    color: var(--primary);
-    font-weight: 500;
-    font-size: 16px;
-    border-radius: 12px;
-    padding: 12px 24px;
-}
-
 .navbar {
     color: var(--primary);
     padding: 10px 10px;
@@ -205,93 +173,6 @@ a {
 
 .navbar>div>div>ul>li {
     font-size: 14px;
-}
-
-.hero {
-    display: flex;
-    gap: 2.5rem;
-    height: 100%;
-    align-items: center;
-    padding-bottom: 124px;
-    justify-content: space-between;
-}
-
-.hero-content {
-    width: 100%;
-}
-
-.hero-title {
-    font-size: 36px;
-    color: var(--primary);
-    line-height: 1;
-    margin-bottom: 30px;
-}
-
-.hero-title>.title {
-    font-size: 88px;
-}
-
-.login-card {
-    width: 560px;
-    gap: 14px;
-    background-color: white;
-    border-radius: 24px;
-}
-
-.login-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--primary);
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
-    padding: 25px 35px;
-    font-size: 18px;
-}
-
-.login-card-content {
-    padding: 45px;
-}
-
-.login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-.login-form>div>label {
-    color: #1F6C75;
-    font-size: 20px;
-}
-
-.login-form>div>input::placeholder {
-    color: #ADC9CD;
-}
-
-.login-form>div>input {
-    height: 50px;
-    border-radius: 5px;
-    font-size: 16px;
-    border: 1px solid #ADC9CD;
-}
-
-.rounded-full {
-    border-radius: 9999px;
-}
-
-.loginBtn {
-    margin-top: 20px;
-    color: white;
-    padding: 14px;
-    width: 100%;
-    border-radius: 10px;
-    background-color: var(--primary);
-}
-
-.login-sub-link {
-    font-size: 14px;
-    color: #00ACB1;
-    padding-top: 4px;
 }
 
 .contact-btn {
@@ -417,11 +298,43 @@ footer>div>.title {
     border: none;
 }
 
+#userid {
+    color: black;
+}
 
-@media only screen and (min-width: 1335px) {
-    .grad {
-        background-image: url("./assets/Doctor.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+.welcome {
+    font-size: 24px;
+    color: var(--primary);
+    margin: 10px 0px;
+}
+
+.program-container {
+    display: flex;
+    gap: 1rem;
+    height: 50%;
+}
+
+.program-card {
+    width: 560px;
+    height: 90%;
+    min-height: 80%;
+    min-width: 30%;
+    gap: 14px;
+    border-radius: 12px;
+    color: white;
+    padding: 10px;
+}
+
+.program-card:nth-child(1) {
+    background-color: var(--accent);
+    color: black;
+}
+
+.program-card:nth-child(2) {
+    background-color: var(--primary);
+}
+
+.dash-main {
+    height: 100%;
+    margin: 10px 0px;
 }

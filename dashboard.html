@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Med</title>
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -51,76 +51,20 @@
         </div>
 
     </nav>
-    <main>
-        <div class="grad">
-            <div class="hero container">
-                <div class="login-card">
-                    <div class="login-header">
-                        <p style="font-size:32px;font-weight: 600;color:white;">
-                            Login
-                        </p>
-                        <button id="loginHelpBtn"
-                            style="display:flex;border-radius:99px;padding:6px;background-color:var(--accent);">
-                            <i class="material-icons" style="font-size:38px;color:var(--primary);">contact_support</i>
-                        </button>
-                    </div>
-                    <div class="login-card-content">
-                        <form class="login-form">
-                            <div class="flex flex-column">
-                                <label for="userid">Login ID</label>
-                                <input name="userid" type="text" placeholder="Enter ID" />
-                                <a href="#" class="login-sub-link">
-                                    Forgot Login ID
-                                </a>
-                            </div>
-                            <div class="flex flex-column">
-                                <label for="password">Password</label>
-                                <input name="password" type="text" placeholder="Enter Password" />
-                                <a href="#" class="login-sub-link">
-                                    Forgot Password
-                                </a>
-                            </div>
-                            <button id="loginBtn" class="loginBtn">
-                                Login
-                            </button>
-                        </form>
-                    </div>
+    <main class="container flex flex-column justify-between">
+        <h1 class="welcome">Welcome, <span id="userid"></span></h1>
+        <div class="dash-main">
+            <div class="program-container">
+                <div class="program-card" id="program-cancer">
+                    Enroll for Cancer Wellness Program
                 </div>
-
-                <div class="flex flex-column hero-content">
-                    <div class="hero-title">
-                        Welcome to <p class="title">HealthCare</p>
-                    </div>
-                    <div class="highlights">
-                        <ul class="flex flex-column">
-                            <li class="flex items-center gap-1">
-                                <i class="material-icons">arrow_outward</i>
-                                <div>
-                                    Consult Doctor
-                                </div>
-                            </li>
-                            <li class="flex items-center gap-1">
-                                <i class="material-icons">arrow_outward</i>
-                                <div>
-                                    Medication
-                                </div>
-                            </li>
-                            <li class="flex items-center gap-1">
-                                <i class="material-icons">arrow_outward</i>
-                                <div>
-                                    Testing
-                                </div>
-                            </li>
-                        </ul>
-                        <div>
-                            <p>We are happy to help!</p>
-                            <button id="hero-contactus">
-                                Contact Us
-                            </button>
-                        </div>
-                    </div>
+                <div class="program-card" id="program-diabetes">
+                    Enroll for Diabetes Wellness Program
                 </div>
             </div>
+            <button class="dash-btn">Consult Doctor</button>
+            <button class="dash-btn">Medication</button>
+            <button class="dash-btn">Testing</button>
         </div>
     </main>
 
@@ -210,7 +154,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="./js/login.js"></script>
+    <script type="text/javascript" src="./js/dashboard.js"></script>
     <script type="text/javascript" src="./js/chatbot.js"></script>
 </body>
 
