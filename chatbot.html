@@ -194,6 +194,9 @@
             endMessage.classList.add('chat-ended');
             endMessage.textContent = 'Chat has ended.';
             chatMessages.parentNode.appendChild(endMessage);
+
+            setTimeout(() => {
+            closeChatbot();}, 2500);
         }
 
         function closeChatbot() {
