@@ -97,6 +97,14 @@
             padding: 12px 24px;
             cursor: pointer;
         }
+
+        .chat-ended {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+            color: var(--primary);
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -105,7 +113,7 @@
         <div class="chat-messages" id="chatMessages">
             <!-- Messages will be dynamically added here -->
         </div>
-        <div class="chat-input">
+        <div class="chat-input" id="chatInput">
             <input type="text" id="userInput" placeholder="Type your message...">
             <button id="sendButton">Send</button>
         </div>
@@ -113,6 +121,7 @@
 
     <script>
         const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
         const userInput = document.getElementById('userInput');
         const sendButton = document.getElementById('sendButton');
         let currentQuestionIndex = 0;
@@ -174,10 +183,18 @@
                 placeholder: "Type your answer here...",
                 action: (input) => {
                     addMessage(`Thank you for answering all questions. A care agent will get back shortly.`, false);
-                    nextQuestion();
+                    endChat();
                 }
             },
         ];
+
+        function endChat() {
+            chatInput.remove();
+            const endMessage = document.createElement('div');
+            endMessage.classList.add('chat-ended');
+            endMessage.textContent = 'Chat has ended.';
+            chatMessages.parentNode.appendChild(endMessage);
+        }
 
         function closeChatbot() {
             window.parent.postMessage({ type: "CLOSE_CHATBOT" }, "*");
